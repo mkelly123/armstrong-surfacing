@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Link from "next/link";
 export default function Hero() {
   return (
     <section className="relative h-[850px] overflow-hidden bg-[#071B39]">
@@ -9,6 +10,7 @@ export default function Hero() {
         src="/images/hero-road.png"
         alt="Road surfacing plant"
         fill
+        sizes="(max-width: 768px) 100vw, 33vw"
         className="object-cover"
         />
 
@@ -47,13 +49,19 @@ export default function Hero() {
 
         <div className="mt-10 flex gap-5">
 
-          <button className="rounded bg-blue-600 px-10 py-5 font-bold text-white">
+          <Link
+            href="/contact"
+            className="rounded-lg bg-blue-600 px-10 py-5 font-bold text-white transition hover:bg-blue-700"
+            >
             REQUEST A SITE SURVEY
-          </button>
+          </Link>
 
-          <button className="rounded border border-white px-10 py-5 font-bold text-white">
+          <Link
+            href="/projects"
+            className="rounded-lg border border-white px-10 py-5 font-bold text-white transition hover:bg-white hover:text-[#071B39]"
+            >
             EXPLORE PROJECTS
-          </button>
+          </Link>
 
         </div>
 

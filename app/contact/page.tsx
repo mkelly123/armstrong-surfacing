@@ -32,7 +32,7 @@ export default function ContactPage() {
 
       {/* Contact Information */}
 
-      <section className="bg-white py-24">
+      <section id="enquiry-form" className="bg-white py-24">
 
         <div className="mx-auto grid max-w-[1400px] gap-12 px-8 lg:grid-cols-2">
 

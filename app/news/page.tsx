@@ -26,6 +26,7 @@ export default function NewsPage() {
           src="/images/news-hero.jpg"
           alt="Armstrong Surfacing News"
           fill
+          sizes="100vw"
           priority
           className="object-cover"
         />
@@ -80,6 +81,7 @@ export default function NewsPage() {
                     src={article.image}
                     alt={article.title}
                     fill
+                    sizes="(max-width: 768px) 100vw, 33vw"
                     className="object-cover"
                   />
 

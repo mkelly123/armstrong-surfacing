@@ -72,6 +72,7 @@ export default function ProjectsPage() {
           src="/images/projects-hero.jpg"
           alt="Armstrong Surfacing Projects"
           fill
+          sizes="100vw"
           priority
           className="object-cover"
         />
@@ -139,6 +140,7 @@ export default function ProjectsPage() {
                     src={project.image}
                     alt={project.title}
                     fill
+                    sizes="(max-width: 768px) 100vw, 33vw"
                     className="object-cover transition duration-700 group-hover:scale-110"
                   />
 

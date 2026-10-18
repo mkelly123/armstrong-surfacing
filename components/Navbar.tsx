@@ -42,11 +42,21 @@ export default function Navbar() {
 
           <div className="text-right text-white">
             <p className="text-sm font-semibold">
-              028 9264 8270
+              <a
+                href="tel:02892648270"
+                className="font-bold text-white hover:text-blue-400"
+                >
+                028 9264 8270
+              </a>
             </p>
 
             <p className="text-xs text-slate-300">
-              enquiries@armstrong-surfacing.co.uk
+              <a
+                href="mailto:enquiries@armstrong-surfacing.co.uk"
+                className="hover:text-blue-400"
+                >
+                enquiries@armstrong-surfacing.co.uk
+              </a>        
             </p>
 
             <p className="text-xs text-slate-300">
@@ -54,9 +64,12 @@ export default function Navbar() {
             </p>
           </div>
 
-          <button className="rounded bg-blue-600 px-8 py-4 font-bold text-white transition hover:bg-blue-700">
+          <Link
+            href="/contact#enquiry-form"
+            className="rounded-lg bg-blue-600 px-8 py-4 font-bold text-white transition hover:bg-blue-700"
+            >
             REQUEST A QUOTE
-          </button>
+            </Link>
 
         </div>
 
@@ -74,11 +87,6 @@ export default function Navbar() {
             <Menu size={30} />
           )}
         </button>
-
-        {/* <button
-        onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-        className="text-white xl:hidden transition-transform duration-300"
-        ></button> */}
         
       </div>
 
@@ -159,9 +167,12 @@ export default function Navbar() {
                 Contact
                 </Link>
 
-                <button className="mt-4 rounded bg-blue-600 px-6 py-3 font-bold text-white transition hover:bg-blue-700">
+                <Link
+                href="/contact#enquiry-form"
+                className="rounded-lg bg-blue-600 px-8 py-4 font-bold text-white transition hover:bg-blue-700"
+                >
                 REQUEST A QUOTE
-                </button>
+                </Link>
 
             </nav>
 

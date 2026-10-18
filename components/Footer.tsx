@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { FaFacebookF } from "react-icons/fa";
 import {
   Phone,
@@ -13,7 +14,7 @@ export default function Footer() {
 
       <div className="border-b border-blue-900">
 
-        <div className="mx-auto max-w-[1600px] px-8 py-12">
+        <div className="mx-auto max-w-[1600px] px-8 py-16">
 
           <div className="flex flex-col items-start justify-between gap-8 lg:flex-row lg:items-center">
 
@@ -32,9 +33,12 @@ export default function Footer() {
               </p>
             </div>
 
-            <button className="rounded bg-blue-600 px-10 py-5 font-bold text-white transition hover:bg-blue-700">
-              REQUEST A QUOTE
-            </button>
+            <Link
+                href="/contact#enquiry-form"
+                className="rounded-lg bg-blue-600 px-8 py-4 font-bold text-white transition hover:bg-blue-700"
+                >
+                REQUEST A QUOTE
+            </Link>
 
           </div>
 

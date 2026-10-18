@@ -49,6 +49,7 @@ export default function SectorsPage() {
           src="/images/sectors-hero.jpg"
           alt="Sectors"
           fill
+          sizes="100vw"
           priority
           className="object-cover"
         />
@@ -109,6 +110,7 @@ export default function SectorsPage() {
                     src={sector.image}
                     alt={sector.title}
                     fill
+                    sizes="(max-width: 768px) 100vw, 33vw"
                     className="object-cover"
                   />
 

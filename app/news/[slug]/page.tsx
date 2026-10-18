@@ -63,6 +63,7 @@ export default async function NewsArticlePage({
             src={article.image}
             alt={article.title}
             fill
+            sizes="(max-width: 768px) 100vw, 33vw"
             priority
             className="object-cover"
         />
@@ -211,6 +212,7 @@ export default async function NewsArticlePage({
                     src={related.image}
                     alt={related.title}
                     fill
+                    sizes="(max-width: 768px) 100vw, 33vw"
                     className="object-cover"
                     />
 

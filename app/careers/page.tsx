@@ -28,6 +28,7 @@ export default function CareersPage() {
           src="/images/careers-hero.jpg"
           alt="Careers at Armstrong Surfacing"
           fill
+          sizes="100vw"
           priority
           className="object-cover"
         />

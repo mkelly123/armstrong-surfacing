@@ -60,6 +60,7 @@ export default async function ProjectPage({
             src={project.image}
             alt={project.title}
             fill
+            sizes="(max-width: 768px) 100vw, 33vw"
             priority
             className="object-cover"
         />
