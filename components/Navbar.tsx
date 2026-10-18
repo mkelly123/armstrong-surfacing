@@ -1,56 +1,46 @@
+"use client";
+
+import { useState } from "react";
+import Link from "next/link";
+import Image from "next/image";
+import { Menu, X } from "lucide-react";
+
 export default function Navbar() {
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+
   return (
     <header className="fixed top-0 z-50 w-full bg-[#03152E]/95 backdrop-blur-md">
 
-      <div className="mx-auto flex h-24 max-w-[1600px] items-center justify-between px-8">
+      <div className="mx-auto flex h-16 md:h-20 max-w-[1600px] items-center justify-between px-4 md:px-8">
 
-        <div className="flex items-center gap-5">
+        {/* Logo */}
+        <Link href="/" className="flex items-center">
+          <Image
+            src="/images/logo.png"
+            alt="Armstrong Surfacing Ltd"
+            width={500}
+            height={141}
+            priority
+            className="h-10 w-auto sm:h-12 md:h-14 lg:h-16"
+          />
+        </Link>
 
-          <div className="flex h-14 w-14 items-center justify-center rounded bg-blue-600 text-3xl font-black text-white">
-            A
-          </div>
-
-          <div>
-            <h1 className="text-4xl font-black leading-none text-white">
-              ARMSTRONG
-            </h1>
-
-            <p className="font-bold tracking-[3px] text-blue-500">
-              SURFACING LTD
-            </p>
-          </div>
-
-          <div className="ml-6 hidden border-l border-slate-600 pl-6 xl:block">
-            <p className="text-xs uppercase tracking-wider text-slate-300">
-              Trusted Surfacing
-            </p>
-            <p className="text-xs uppercase tracking-wider text-slate-300">
-              For A Stronger
-            </p>
-            <p className="text-xs uppercase tracking-wider text-slate-300">
-              Northern Ireland
-            </p>
-          </div>
-
-        </div>
-
+        {/* Desktop Navigation */}
         <nav className="hidden gap-8 text-sm font-semibold text-white xl:flex">
-
-          <a href="#">Home</a>
-          <a href="#">About Us</a>
-          <a href="#">Our Services</a>
-          <a href="#">Projects</a>
-          <a href="#">Sectors</a>
-          <a href="#">Careers</a>
-          <a href="#">News</a>
-          <a href="#">Contact</a>
-
+          <Link href="/">Home</Link>
+          <Link href="/about">About Us</Link>
+          <Link href="/services">Services</Link>
+          <Link href="/projects">Projects</Link>
+          <Link href="/sectors">Sectors</Link>
+          <Link href="/careers">Careers</Link>
+          <Link href="/news">News</Link>
+          <Link href="/contact">Contact</Link>
         </nav>
 
+        {/* Desktop Contact Section */}
         <div className="hidden items-center gap-6 xl:flex">
 
           <div className="text-right text-white">
-
             <p className="text-sm font-semibold">
               028 9264 8270
             </p>
@@ -62,17 +52,122 @@ export default function Navbar() {
             <p className="text-xs text-slate-300">
               Lisburn, BT28 3RG
             </p>
-
           </div>
 
-          <button className="rounded bg-blue-600 px-8 py-4 font-bold text-white">
+          <button className="rounded bg-blue-600 px-8 py-4 font-bold text-white transition hover:bg-blue-700">
             REQUEST A QUOTE
           </button>
 
         </div>
 
+        {/* Mobile Hamburger */}
+        <button
+          onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+          className="text-white xl:hidden"
+        >
+          {mobileMenuOpen ? (
+            <X
+                size={30}
+                className="transition-all duration-300"
+            />
+          ) : (
+            <Menu size={30} />
+          )}
+        </button>
+
+        {/* <button
+        onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+        className="text-white xl:hidden transition-transform duration-300"
+        ></button> */}
+        
       </div>
 
+      {/* Mobile Navigation */}
+      <div
+        className={`xl:hidden overflow-hidden border-slate-700 bg-[#03152E]
+            transition-all duration-300 ease-in-out
+            ${
+            mobileMenuOpen
+                ? "max-h-screen border-t opacity-100"
+                : "max-h-0 opacity-0"
+            }`}
+        >
+
+            <nav className="flex flex-col px-6 py-6 text-white">
+
+                <Link
+                href="/"
+                className="py-3 transition hover:text-blue-400"
+                onClick={() => setMobileMenuOpen(false)}
+                >
+                Home
+                </Link>
+
+                <Link
+                href="/about"
+                className="py-3 transition hover:text-blue-400"
+                onClick={() => setMobileMenuOpen(false)}
+                >
+                About Us
+                </Link>
+
+                <Link
+                href="/services"
+                className="py-3 transition hover:text-blue-400"
+                onClick={() => setMobileMenuOpen(false)}
+                >
+                Services
+                </Link>
+
+                <Link
+                href="/projects"
+                className="py-3 transition hover:text-blue-400"
+                onClick={() => setMobileMenuOpen(false)}
+                >
+                Projects
+                </Link>
+
+                <Link
+                href="/sectors"
+                className="py-3 transition hover:text-blue-400"
+                onClick={() => setMobileMenuOpen(false)}
+                >
+                Sectors
+                </Link>
+
+                <Link
+                href="/careers"
+                className="py-3 transition hover:text-blue-400"
+                onClick={() => setMobileMenuOpen(false)}
+                >
+                Careers
+                </Link>
+
+                <Link
+                href="/news"
+                className="py-3 transition hover:text-blue-400"
+                onClick={() => setMobileMenuOpen(false)}
+                >
+                News
+                </Link>
+
+                <Link
+                href="/contact"
+                className="py-3 transition hover:text-blue-400"
+                onClick={() => setMobileMenuOpen(false)}
+                >
+                Contact
+                </Link>
+
+                <button className="mt-4 rounded bg-blue-600 px-6 py-3 font-bold text-white transition hover:bg-blue-700">
+                REQUEST A QUOTE
+                </button>
+
+            </nav>
+
+        </div>
+
     </header>
+
   );
 }
