@@ -51,6 +51,11 @@ export default async function ProjectPage({
     notFound();
   }
 
+  const relatedProjects = projects
+  .filter((p) => p.slug !== project.slug)
+  .slice(0, 3);
+
+
   return (
     <main>
 
@@ -129,6 +134,113 @@ export default async function ProjectPage({
 
         </section>
 
+        <section className="bg-slate-50 py-24">
+
+            <div className="mx-auto max-w-4xl px-8">
+
+                <h2 className="mb-8 text-4xl font-black">
+                Project Details
+                </h2>
+
+                <div className="space-y-6">
+
+                {project.content?.split("\n")
+                    .filter(Boolean)
+                    .map((paragraph, index) => (
+                    <p
+                        key={index}
+                        className="text-lg leading-relaxed text-slate-700"
+                    >
+                        {paragraph.trim()}
+                    </p>
+                ))}
+
+                </div>
+
+            </div>
+
+        </section>
+
+        <section className="bg-white py-24">
+
+            <div className="mx-auto max-w-[1400px] px-8">
+
+                <h2 className="mb-12 text-5xl font-black">
+                Related Projects
+                </h2>
+
+                <div className="grid gap-8 md:grid-cols-3">
+
+                {relatedProjects.map((related) => (
+
+                    <div
+                    key={related.slug}
+                    className="overflow-hidden rounded-2xl bg-slate-50 shadow-lg"
+                    >
+
+                    <div className="relative h-64">
+
+                        <Image
+                        src={related.image}
+                        alt={related.title}
+                        fill
+                        sizes="(max-width:768px) 100vw, 33vw"
+                        className="object-cover"
+                        />
+
+                    </div>
+
+                    <div className="p-6">
+
+                        <h3 className="mb-2 text-2xl font-black">
+                        {related.title}
+                        </h3>
+
+                        <p className="mb-4 text-slate-600">
+                        {related.location}
+                        </p>
+
+                        <a
+                        href={`/projects/${related.slug}`}
+                        className="font-semibold text-blue-600"
+                        >
+                        View Project →
+                        </a>
+
+                    </div>
+
+                    </div>
+
+                ))}
+
+                </div>
+
+            </div>
+
+        </section>
+
+        <section className="bg-[#071B39] py-24 text-white">
+
+            <div className="mx-auto max-w-4xl px-8 text-center">
+
+                <h2 className="mb-6 text-5xl font-black">
+                Need A Surfacing Contractor?
+                </h2>
+
+                <p className="mb-10 text-xl text-slate-300">
+                Speak with our team about your next project.
+                </p>
+
+                <a
+                href="/contact"
+                className="inline-block rounded-lg bg-blue-600 px-8 py-4 font-bold text-white"
+                >
+                Request A Quote
+                </a>
+
+            </div>
+
+        </section>
     </main>
     );
 }

@@ -1,6 +1,7 @@
 import Image from "next/image";
+import { projects } from "@/data/projects";
 
-const projects = [
+/* const projects = [
   {
     title: "Retail Development",
     location: "Lisburn",
@@ -21,7 +22,7 @@ const projects = [
     location: "County Down",
     image: "/images/project-4.jpg",
   },
-];
+]; */
 
 export default function Projects() {
   return (
