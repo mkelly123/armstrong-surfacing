@@ -9,7 +9,7 @@ import Accreditations from "@/components/Accreditations";
 import CTA from "@/components/CTA";
 import Footer from "@/components/Footer";
 import Contact from "@/components/Contact";
-import FeaturedProjects from "@/components/FeaturedPtojects";
+import FeaturedProjects from "@/components/FeaturedProjects";
 
 export default function Home() {
   return (
